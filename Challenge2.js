@@ -12,27 +12,23 @@ John and Mike both play basketball in different teams. In the latest 3 games, Jo
 */
 
 
-const johnTeamScore = [89, 120, 103];
+const johnTeamScore = [89, 120, 103, 45];
 const mikeTeamScore = [116, 94, 123];
 const maryTeamScore = [97, 134, 105];
 
 
-const johnScoreSum = johnTeamScore.reduce((a, b) => {
-    return a + b;
-});
-const mikeScoreSum = mikeTeamScore.reduce((a, b) => {
-    return a + b;
-},0); //// the 0 is the value to use as the first argument to the first call of the callback // don't know if I understand
-const maryScoreSum = maryTeamScore.reduce((a, b) => {
-    return a + b;
-});
-const avScore = (sum, arr) => sum/ arr.length
+const averageScore = (arr) => {
+    const sum = arr.reduce((a,b) => {
+        return (a + b)
+    },0);
+    return (sum/ arr.length)
+}
 
-const johnAvScore = (avScore(johnScoreSum, johnTeamScore));
-const mikeAvScore = (avScore(mikeScoreSum, mikeTeamScore));
-const maryAvScore = (avScore(maryScoreSum, maryTeamScore));
-
+const johnAvScore = averageScore(johnTeamScore);
+const mikeAvScore = averageScore(mikeTeamScore);
+const maryAvScore = (averageScore(maryTeamScore));
 console.log(johnAvScore, mikeAvScore, maryAvScore);
+
 
 //const higherScore = johnAvScore > mikeAvScore ? console.log(`John has a higher score of ${johnAvScore}`) : console.log (`mike has a higher score of ${mikeAvScore}`)
 
@@ -47,8 +43,8 @@ if(johnAvScore > mikeAvScore && johnAvScore > maryAvScore){
 };
 
 /*
-const scoreSum = function(a){                /////////how can you make a general funct where you can sub in the array
-    a.reduce((a, b) => {
+const scoreSum = function(arr){                /////////how can you make a general funct where you can sub in the array
+    arr.reduce((a, b) => {
         return a + b;
     })
 };
