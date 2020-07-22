@@ -5,37 +5,45 @@
 // So you'd ask "What chore needs to be done?" -> and then type dishes as an example
 // and it would console.log "Jason needs to do dishes today"
 
-// const chore = prompt("What chore needs to be done?")
+let chore = document.querySelector(".chore");
+let name = document.querySelector(".name");
 
-// const allChores = []
+let choreBtn = document.querySelector(".choreBtn");
 
-// for(i=0; i<10; i++){
-//     allChores.push(chore)
-// }
+choreBtn.addEventListener("click", (e) => {
 
-// console.log(allChores)
+  return (addToArray(chore, e))
+});
 
-let chores = []
+let choreArray = [];
+console.log(choreArray)
 
-    //when the button is clicked we apply a function
-    document.querySelector('DOMcontentLoaded'),()=> {
-    document.querySelector('.choreBtn').addEventListener('click', addChore)};
 
-    document.addEventListener('keypress', function(event) {
-        if (event.keyCode === 13 || event.which === 13) {
-            addChore();
-        }
-    });
 
-    //the function on clicking
-    const addChore = () => {
-    
-        // event.preventDefault()
-        //retrieve value from input
-        let chore = document.querySelector('chore').value
-        //store value in array
-        chores.push(chore)
-        //clear field
-        document.querySelector('.chore').reset()
+const createChoreItem= function (valueChore, listID) {
+    const newListItem = document.createElement("li");
+    const newContent = document.createTextNode(valueChore); //text node creates the html for text that isn't there/ textconten replaces it
+    newListItem.appendChild(newContent);
+    const list = document.querySelector(listID);
+    list.appendChild(newListItem);
+    // clearField(newToDo);
 
-        }
+};
+
+
+const addToArray = (choreItem, e) => {
+  e.preventDefault()
+  let choreValue = choreItem.value;
+  if (choreValue !== "") {
+    choreArray.push(choreValue);
+
+    clearField(choreItem)
+    createChoreItem(choreValue,'#chores-list')
+  }
+};
+
+const clearField =(field)=>{
+    if(field !== ''){
+       return (field.value = '')
+    } };
+
