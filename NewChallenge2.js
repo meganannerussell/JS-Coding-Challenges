@@ -16,8 +16,6 @@ choreBtn.addEventListener("click", (e) => {
 });
 
 let choreArray = [];
-console.log(choreArray)
-
 
 
 let nameBtn = document.querySelector(".nameBtn");
@@ -28,7 +26,6 @@ nameBtn.addEventListener("click", (e) => {
 });
 
 let nameArray = [];
-console.log(choreArray)
 
 
 const createItem=  (value, listID) => {
@@ -61,19 +58,27 @@ const allocateBtn = document.querySelector('.generateBtn')
 allocateBtn.addEventListener('click', (e)=>{return (createAllocation(e,'#div-contents'))
 })
 
-    const randomIndex =(arr)=>{
-        Math.floor(Math.random()* arr.length)
-     }
+    // const randomIndex =(arr)=>{
+    //     Math.floor(Math.random()* arr.length)
+    //  }
      
-     const randomChore = choreArray[randomIndex(choreArray)]
-     console.log(randomChore)
-     const randomName = nameArray[randomIndex(nameArray)]
+    //  const randomChore = choreArray[randomIndex(choreArray)]
+    //  console.log
+    //  const randomName = nameArray[randomIndex(nameArray)]
 
+    const randomItem =(arr)=>{
+        const randomIndex = Math.floor(Math.random()* arr.length)
+
+        const selectedItem = arr[randomIndex];
+
+        return selectedItem
+
+     }
 
 const createAllocation = (e, listID)=>{
     e.preventDefault()
     const allocation = document.createElement("p")
-    const newContent = document.createTextNode(`${randomName} must complete the chore: ${randomChore}`)
+    const newContent = document.createTextNode(`${randomItem(nameArray)} must complete the chore: ${randomItem(choreArray)}`)
     allocation.appendChild(newContent)
     const line = document.querySelector(listID);
     line.appendChild(allocation);
