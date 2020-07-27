@@ -1,0 +1,63 @@
+.header {
+    text-align: center;
+}
+
+.container {
+    display: flex;
+    justify-content: space-evenly;
+    text-align: center;
+    width: 80%;
+    margin: auto;
+}
+
+.options {
+    text-align: center;
+    padding-top: 40px;
+}
+
+.generate {
+    text-align: center;
+    padding-top: 40px;
+}
+
+.imgContainer {
+    width: 350px;
+    height: 350px;
+    background-color: aliceblue;
+}
+
+.Rock {
+    width: 350px;
+    display: none;
+}
+
+.Paper {
+    width: 350px;
+    display: none;
+}
+
+.Scissors {
+    width: 350px;
+    display: none;
+}
+
+.imgContainer2 {
+    width: 350px;
+    height: 350px;
+    background-color: aliceblue;
+}
+
+.Rock2 {
+    width: 350px;
+    display: none;
+}
+
+.Paper2 {
+    width: 350px;
+    display: none;
+}
+
+.Scissors2 {
+    width: 350px;
+    display: none;
+}
