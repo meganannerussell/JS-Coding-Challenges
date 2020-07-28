@@ -15,19 +15,25 @@ const bills = [124, 48, 268];
 
 const tipCalc = (bill) => {
     if (bill < 50) {
-        return Math.round(bill * 0.2)
+        return (bill * 0.2)
     } else if (50 > bill < 200) {
-        return Math.round(bill * 0.15)
+        return (bill * 0.15)
     } else if (bill > 200) {
-        return Math.round(bill * 0.1)    
+        return (bill * 0.1)    
     }
 }
 
+
 const tips = bills.map(tipCalc);    // is it better to have the fuction outside or map 
+console.log(tips);
 console.log(`The tip amounts are ${tips}`);
 
-const totals = [(tips[0] + bills[0]), (tips[1] + bills[1]), (tips[2] + bills[2]) ]
+const totals = bills.map((value, index) => value + tips[index])
 console.log(`The total bill amounts are ${totals}`);
+
+// const totals = [(tips[0] + bills[0]), (tips[1] + bills[1]), (tips[2] + bills[2]) ]
+// console.log(`The total bill amounts are ${totals}`);
+
 
 // const tips = bills.map((bill) => {
 //     if (bill < 50) {
